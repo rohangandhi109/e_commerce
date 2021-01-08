@@ -17,9 +17,31 @@ This project uses Mongodb atlas, need to set the environment variables
 export MONGO_USER=<YOUR_DATABASE_USERNAME>
 export MONGO_PASSWORD=<YOUR_DATABASE_PASSWORD>
 export MONGO_DEFAULT_DATABASE=<YOU_DATABASE_NAME>
+
 ```
 
-## The URL for the Project:
+### Admin user
 
+This project requires a user to be admin inorder to add products. To make a user admin, add a key value pair to the specific user in the database
+
+```
+admin:'true'
+```
+
+## Running the project
+
+### Local machine
+1. To run in development environment    
+```
+    npm start:dev
+ ```
+2. To run in production environment
+```
+    npm start:server
+```
+
+### Deployed project URL
+```
     https://e-commerce109.herokuapp.com/
+```
 
