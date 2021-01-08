@@ -112,6 +112,7 @@ app.use(shopRoutes);
 app.use(authRoutes);
 
 app.get('/500', errorController.get500);
+app.get('/401', errorController.get401);
 
 app.use(errorController.get404);
 

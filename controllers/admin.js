@@ -21,7 +21,6 @@ exports.postAddProduct = (req, res, next) => {
   const image = req.file;
   const price = req.body.price;
   const description = req.body.description;
-  console.log(image);
   const errors = validationResult(req);
 
   if (!image) {
@@ -190,6 +189,6 @@ exports.deleteProduct = (req, res, next) => {
       res.status(200).json({ message: 'success' });
     })
     .catch((err) => {
-      res.status(200).json({ message: 'Failed deleting product' });
+      res.status(500).json({ message: 'Failed deleting product' });
     });
 };

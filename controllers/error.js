@@ -12,4 +12,15 @@ exports.get500 = (req, res, next) => {
     path: '/500',
     isAuthenticated: req.session.isLoggedIn
   });
+
+};
+
+
+exports.get401 = (req, res, next) => {
+  res.status(401).render('401', {
+    pageTitle: 'Not Authorized',
+    path: '/401',
+    isAuthenticated: req.session.isLoggedIn
+  });
+
 };
