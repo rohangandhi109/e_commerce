@@ -5,9 +5,11 @@ module.exports = (req, res, next) => {
     if (!req.session.user.admin != 'true') {
         console.log(req.session.user)
         console.log(req.session.user.admin)
-        const error = new Error("You are not authorized");
-        error.httpStatusCode = 401;
-        return next(error);
+        res.status(401).render('401', {
+            pageTitle: 'Unauthorized',
+            path: '/401',
+            isAuthenticated: req.session.isLoggedIn
+        });
     }
     next();
 }
