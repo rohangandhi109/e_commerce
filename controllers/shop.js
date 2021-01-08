@@ -290,27 +290,16 @@ exports.getInvoice = (req, res, next) => {
           .fontSize(14)
           .text(
             prod.product.title +
-              ' - ' +
-              prod.quantity +
-              ' x ' +
-              '$' +
-              prod.product.price
+            ' - ' +
+            prod.quantity +
+            ' x ' +
+            '$' +
+            prod.product.price
           );
       });
       pdfDoc.text('-----------------------------');
       pdfDoc.fontSize(20).text('Total Price: $' + totalPrice);
       pdfDoc.end();
-      // fs.readFile(invoicePath, (err, data) => {
-      //   if (err) {
-      //     next(err);
-      //   }
-      //   res.setHeader('content-Type', 'application/pdf');
-      //   res.setHeader(
-      //     'content-Dispostion',
-      //     'inline; filename="' + invoiceName + '"'
-      //   );
-      //   res.send(data);
-      // });
     })
     .catch((err) => next(err));
 };
