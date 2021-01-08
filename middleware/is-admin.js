@@ -5,7 +5,9 @@ module.exports = (req, res, next) => {
     if (!req.session.user.admin != 'true') {
         console.log(req.session.user)
         console.log(req.session.user.admin)
-        res.status(401).json({ message: 'You are not authorized' });
+        const error = new Error("You are not authorized");
+        error.httpStatusCode = 401;
+        return next(error);
     }
     next();
 }
