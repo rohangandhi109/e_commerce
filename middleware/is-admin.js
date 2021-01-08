@@ -3,7 +3,7 @@ module.exports = (req, res, next) => {
         return res.redirect('/login');
     }
     bcrypt
-        .compare(req.session.user.admin,)
+        .compare(req.session.user.admin, 'true')
         .then((doMatch) => {
             if (!doMatch) {
                 res.status(401).render('401', {
